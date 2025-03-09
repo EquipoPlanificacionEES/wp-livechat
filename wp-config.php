@@ -42,6 +42,10 @@ define('DB_USER', getenv("MYSQL_ADDON_USER"));
 define('DB_PASSWORD', getenv("MYSQL_ADDON_PASSWORD"));
 define('DB_HOST', getenv("MYSQL_ADDON_HOST") . ":" . getenv("MYSQL_ADDON_PORT"));
 
+define('FORCE_SSL_ADMIN', true);
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
 
 /**#@+
  * Authentication unique keys and salts.
